@@ -42,7 +42,25 @@ Create the app directory and copy the script from this repo:
 
 > If `pyscript/` or `apps/` doesn’t exist yet, create those folders. `pyscript` directory should exist if you installed and added pyscript integration successfully.
 
-### 3) Configure (optional)
+### 3) Silence Pyscript Activity/Logbook noise 
+
+Home Assistant’s Activity/Logbook can record a line every time a Pyscript trigger fires.  
+To suppress those without affecting your sensors or history, add this to `configuration.yaml`:
+
+```yaml
+recorder:
+  exclude:
+    event_types:
+      - pyscript_running
+
+logbook:
+  exclude:
+    domains:
+      - pyscript
+```
+
+
+### 4) Configure (optional)
 Add (or merge) this in `/config/configuration.yaml`:
 
 ```yaml
@@ -63,9 +81,7 @@ pyscript:
       log_level: "info"                 # "debug" for verbose logs
 ```
 
-### 4) Reload
-- Settings → **Devices & Services** → **Pyscript** → ⋮ → **Reload**
-- (Or restart Home Assistant)
+### 5) Restart Home Assistant
 
 ---
 
