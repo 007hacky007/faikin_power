@@ -90,7 +90,7 @@ pyscript:
 For each Faikin unit that publishes to `state/<unit>`, the app publishes an MQTT
 Discovery config and HA auto-creates:
 
-- `sensor.<unit>_power` (e.g. `sensor.faikin_loznice_power`)
+- `sensor.<unit>_power` (e.g. `sensor.faikin_bedroom_power`)
   - `device_class: power`, `unit_of_measurement: W`, `state_class: measurement`
   - Availability from `state/<unit>` (`{"up": true|false}`)
 
